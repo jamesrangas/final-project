@@ -1,0 +1,64 @@
+function toggleTheme() {
+  var btn = document.getElementById("themeBtn");
+  document.body.classList.toggle("light");
+  if (document.body.classList.contains("light")) {
+    btn.innerHTML = "Dark Mode";
+  } else {
+    btn.innerHTML = "Light Mode";
+  }
+}
+
+var welcome = document.getElementById("welcome");
+welcome.innerHTML = "Welcome to my portfolio!";
+
+function showTime() {
+  var t = document.getElementById("time");
+  var now = new Date();
+  t.innerHTML = now.toLocaleString();
+}
+showTime();
+setInterval(showTime, 1000);
+
+function toggleMore() {
+  var more = document.getElementById("more");
+  var btn = document.getElementById("moreBtn");
+  if (more.style.display === "block") {
+    more.style.display = "none";
+    btn.innerHTML = "Show More";
+  } else {
+    more.style.display = "block";
+    btn.innerHTML = "Hide";
+  }
+}
+
+var topBtn = document.getElementById("topBtn");
+window.onscroll = function () {
+  if (window.scrollY > 200) {
+    topBtn.style.display = "block";
+  } else {
+    topBtn.style.display = "none";
+  }
+};
+
+function goTop() {
+  window.scrollTo(0, 0);
+}
+
+var images = ["images/project1.jpg", "images/project2.jpg", "images/project3.jpg"];
+var index = 0;
+
+function changeSlide(n) {
+  index = index + n;
+  if (index >= images.length) {
+    index = 0;
+  }
+  if (index < 0) {
+    index = images.length - 1;
+  }
+  document.getElementById("slide").src = images[index];
+}
+
+function sendMessage() {
+  alert("Thank you! Your message was sent.");
+  return false;
+}
